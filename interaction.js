@@ -2,10 +2,10 @@
 // L'interacteur viendra dans un second temps donc ne vous en souciez pas au départ.
 function DnD(canvas, interactor) {
     // Définir ici les attributs de la 'classe'
-    var initialX = 0;
-    var intialY = 0;
-    var finalX = 0;
-    var finalY = 0;
+    this.initialX = 0;
+    this.initialY = 0;
+    this.finalX = 0;
+    this.finalY = 0;
     let isMouseDown = false;
 
 
@@ -13,28 +13,31 @@ function DnD(canvas, interactor) {
     this.pression = function pression(event) {
         isMouseDown = true;
         const coord = getMousePosition(canvas, event)
-        initialX = coord.x
-        intialY = coord.y
+        this.initialX = coord.x
+        this.intialY = coord.y
         console.log("presser")
+        interactor.onInteractionStart(this)
     }
 
     this.deplacer = function deplacer(event) {
         if (isMouseDown) {
             const coord = getMousePosition(canvas, event)
-            finalX = coord.x
-            finalY = coord.y
+            this.finalX = coord.x
+            this.finalY = coord.y
             console.log("deplacer")
         }
+        interactor.onInteractionUpdate(this)
     }
 
     this.relacher = function relacher(event) {
         if (isMouseDown) {
             const coord = getMousePosition(canvas, event)
-            finalX = coord.x
-            finalY = coord.y
+            this.finalX = coord.x
+            this.finalY = coord.y
         }
         console.log("relacher")
         isMouseDown = false;
+        interactor.onInteractionEnd(this)
     }
 
     // Associer les fonctions précédentes aux évènements du canvas.
