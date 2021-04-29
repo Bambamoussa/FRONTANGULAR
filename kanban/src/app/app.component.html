@@ -1,0 +1,25 @@
+<nav class="navbar navbar-expand-sm bg-primary navbar-dark">
+  <ul class = "navbar-nav">
+      <li class = "nav-item">
+          <a routerLink="fiches" routerLinkActive="active" class="nav-link" >liste des fiches</a>
+      </li>
+      
+      <li class = "nav-item">
+          <a  routerLink="tableau" routerLinkActive="active" class="nav-link" >tableau</a>
+      </li>
+      <li class = "nav-item">
+        <a routerLink="utilisateurs" routerLinkActive="active"  class="nav-link" >utilisateurs</a>
+      </li>
+
+      <li class = "nav-item">
+        <a routerLink="section" routerLinkActive="active"  class="nav-link" >sections</a>
+      </li>
+  </ul>
+</nav>
+
+<!--<router-outlet></router-outlet> -->
+<div class="container">  
+  <router-outlet></router-outlet>
+</div>
+
+

@@ -1,0 +1,23 @@
+ <div class="col-md-8 offset-md-3">
+    <h3> Update Utlisateur</h3>
+    <form (ngSubmit) = "updateSubmit()">
+    
+        <div class="form-group">
+            <label> nom</label>
+            <input type="text" class ="form-control" id = "nom"
+                [(ngModel)] = "utilisateurs.nom" name = "nom">
+        </div>
+    
+        <div class="form-group">
+            <label> prenom</label>
+            <input type="text" class ="form-control" id = "nom"
+                [(ngModel)] = "utilisateurs.prenom" name = "prenom">
+        </div>
+         
+    
+        
+    
+        <button class = "btn btn-success" type ="submit">Submit</button>
+    
+
+    </form>

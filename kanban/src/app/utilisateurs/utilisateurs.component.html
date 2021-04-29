@@ -1,0 +1,71 @@
+<h2> Liste des utilisateurs</h2>
+ 
+<button (click)="AjouterUtilisateur()" class="btn btn-primary"> Ajouter Utilisateur</button>
+ 
+ 
+<table class = "table table-striped">
+    <thead>
+        <tr>
+            <th> nom</th>
+            <th> prenom</th>
+            <th> fiches</th> 
+            <th> action </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor = "let utilisateur of utilisateurs" >
+            <td> {{ utilisateur.nom}} </td>
+            <td> {{ utilisateur.prenom}} </td>
+            <td> {{ utilisateur.id_utilisateur}} </td>
+             
+             
+            <td>
+                <button  (click)="updateUtilisateur(utilisateur.id_utilisateur)" class = "btn btn-info"> Update</button>
+                <button  (click)="DeleteUtilisateur(utilisateur.id_utilisateur)" class = "btn btn-danger" style="margin-left: 10px"> Delete</button>
+                <button  (click)="detailsUtilisateur(utilisateur.id_utilisateur)" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    view
+                  </button>
+
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+ 
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">information de l'uilisateur</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          
+            
+<table class = "table table-striped">
+  <thead>
+      <tr>
+          <th> nom</th>
+          <th> prenom</th>
+          <th> fiches</th> 
+          <th> action </th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr >
+          <td> {{ utilisateursById.nom}} </td>
+          <td> {{ utilisateursById.prenom}} </td>
+          <td> {{ utilisateursById.id_utilisateur}} </td>
+
+        
+      </tr>
+  </tbody>
+</table>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          
+        </div>
+      </div>
+    </div>
+  </div>
