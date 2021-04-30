@@ -21,6 +21,7 @@ import { UpdateUtilisateurComponent } from './update-utilisateur/update-utilisat
 import { UpdateTableauComponent } from './update-tableau/update-tableau.component';
 import { UpdateSectionComponent } from './update-section/update-section.component'
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgxPaginationModule } from 'ngx-pagination';
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,6 +46,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     FormsModule,
     BrowserAnimationsModule,
     NgbModule,
+    NgxPaginationModule,
     ToastrModule.forRoot({
       timeOut:2000,
       progressBar:true

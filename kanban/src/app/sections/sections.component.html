@@ -12,7 +12,7 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor = "let section of sections" >
+        <tr *ngFor = "let section of sections| paginate: { itemsPerPage: 2, currentPage: p}" >
             <td> {{ section.libelle_section}} </td>
              
              
@@ -45,4 +45,5 @@
       </div>
     </div>
   </div>
+  <pagination-controls (pageChange)="p = $event"></pagination-controls>
 

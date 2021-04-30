@@ -1,5 +1,7 @@
+import { Utilisateur } from "./utilisateur"
+
 export class Fiches {
-    id_fiche:number | undefined
+    id_fiche!: number  
     libelle:string=''
     date_buttoir:Date | undefined
     lieu:string=''

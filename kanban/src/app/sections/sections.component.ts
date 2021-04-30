@@ -11,7 +11,8 @@ import { SectionService } from '../services/section.service';
 })
 export class SectionsComponent implements OnInit {
 
-  sections:Section[] | undefined;                                                                                
+  sections:Section[]=[];  
+  p:number=1                                                                              
 
   constructor(private sectionService:SectionService, private toastr :ToastrService,private router: Router) { }
 
@@ -37,4 +38,5 @@ export class SectionsComponent implements OnInit {
       this.toastr.success(' la section  a été supprimée','message')
     })
   }
+   
 }

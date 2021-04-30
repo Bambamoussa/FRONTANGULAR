@@ -10,8 +10,9 @@ import { FichesService } from '../services/fiches.service';
   styleUrls: ['./fiches.component.css']
 })
 export class FichesComponent implements OnInit {
-  fiches:Fiches[] | undefined;  
-  fichesById:Fiches=new Fiches()                                                                              
+  fiches:Fiches[]=[];  
+  fichesById:Fiches=new Fiches()
+  p: number = 1;                                                                              
 
   constructor(private fichesService:FichesService, private toastr :ToastrService,private router: Router) { }
 

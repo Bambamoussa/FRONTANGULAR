@@ -11,8 +11,9 @@ import { UtilisateurService } from '../services/utilisateur.service';
 })
 export class UtilisateursComponent implements OnInit {
 
-  utilisateurs:Utilisateur[] | undefined;  
+  utilisateurs:Utilisateur[] =[];  
   closeResult = '';   
+  p: number = 1;
   utilisateursById: Utilisateur=new Utilisateur() ;                                                                            
 
   constructor(private utilisateurService:UtilisateurService,

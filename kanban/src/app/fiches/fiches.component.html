@@ -9,34 +9,43 @@
             <th> date_buttoir </th>
             <th> lieu</th>
             <th> temps </th>
+            <th> Notes </th>
             <th> utilisateur </th>
             <th> tableau </th>
             <th> section </th>
-            <th> Notes </th>
+            
              
             <th> action </th>
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor = "let fiche of fiches" >
+        <tr *ngFor = "let fiche of fiches  | paginate: { itemsPerPage: 2, currentPage: p } " >
             <td> {{ fiche.libelle}} </td>
             <td> {{ fiche.date_buttoir}} </td>
             <td> {{fiche.lieu}} </td>
             <td> {{fiche.temps}} </td>
+            <td >  {{fiche.note}}</td>
             <td >  {{fiche.utilisateur.nom}}</td>
+            
             <td >  {{fiche.tableau.id_Kanban}}</td>
             <td >  {{fiche.section.libelle_section}}</td>
-            <td >  {{fiche.note}}</td>
+            
              
             <td>
                 <button   class = "btn btn-info"> Update</button>
                 <button (click)="DeleteFiche(fiche.id_fiche)"  class = "btn btn-danger" style="margin-left: 10px"> Delete</button>
                 <button (click)="detailsFiches(fiche.id_fiche)" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
                     view
-                  </button>             </td>
+                  </button>    
+            </td>
         </tr>
     </tbody>
+    
 </table>
+<pagination-controls (pageChange)="p = $event"></pagination-controls>
+
+ 
+  
 
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -72,7 +81,7 @@
                    
                
         </table>
-        </div>
+            </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
           
@@ -80,3 +89,5 @@
       </div>
     </div>
   </div>
+  
+   

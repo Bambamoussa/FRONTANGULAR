@@ -11,8 +11,8 @@ import { TableauService } from '../services/tableau.service';
 })
 export class TableauComponent implements OnInit {
 
-  tableau:Tableau[] | undefined;                                                                                
-
+  tableau:any[] =[] ;                                                                                
+  p: number = 1;
   constructor(private tableauService:TableauService,private toastr:ToastrService, private router: Router) { }
 
   ngOnInit(): void {

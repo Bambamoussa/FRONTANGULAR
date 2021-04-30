@@ -10,13 +10,17 @@ export class TableauService {
   private urlTableau="api/tableau/all";
   private urlCreateTableau="api/tableau";
   private UrldeleteTableau="api/tableau/delete"
+  private urlGetTableau="api//tableau"
    
   constructor(private httpClient :HttpClient) { }
 
   getTableauList(): Observable<Tableau[]>{
     return this.httpClient.get<Tableau[]>(`${this.urlTableau}`);
   }
-
+  getByTableauId(id:any):Observable<Tableau>{
+    return this.httpClient.get<Tableau>(`${this.urlGetTableau}/${id}`)
+ }
+ 
   createTableau(tableau:Tableau):Observable<object>{
   
     return this.httpClient.post(`${this.urlCreateTableau}`,tableau);

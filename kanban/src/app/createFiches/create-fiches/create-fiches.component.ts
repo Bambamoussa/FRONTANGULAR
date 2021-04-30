@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { Fiches } from 'src/app/models/fiches';
 import { Section } from 'src/app/models/section';
 import { Tableau } from 'src/app/models/tableau';
@@ -16,14 +17,26 @@ import { UtilisateurService } from 'src/app/services/utilisateur.service';
 })
 export class CreateFichesComponent implements OnInit {
   fiches: Fiches=new Fiches()
-  utilisateur:Utilisateur[] | undefined;   
-  tableau:Tableau[]|undefined;
+  utilisateur:Utilisateur[]=[];   
+  tableau:Tableau[]=[];
+
+  libelle:string=''
+  date_buttoir:Date =new Date()
+  lieu:string=''
+  note:string=""
+  temps:number=0
+  url:string=''
+  id_utilisateur:number=0;
+  id_section:number=0;
+  id_tableau=0;
+
+
   tableau1:Tableau =new Tableau();
   section1:Section=new Section();
   utilisateur1:Utilisateur=new Utilisateur()
-  section:Section[]|undefined;
+  section:Section[]=[];
   libelle_section:string|undefined
-  constructor(private ficheService:FichesService,private sectionService:SectionService,private tableauService:TableauService,private utilisateurService:UtilisateurService, private router:Router) { }
+  constructor(private ficheService:FichesService,private toastr:ToastrService,private sectionService:SectionService,private tableauService:TableauService,private utilisateurService:UtilisateurService, private router:Router) { }
   
   ngOnInit(): void {
     this.getUtilisateur()
@@ -58,15 +71,26 @@ export class CreateFichesComponent implements OnInit {
     
   }
   saveFiche(){
-    
-    this.ficheService.createFiche(this.fiches).subscribe(data=>{
-      
-      console.log(this.fiches)
+    this.fiches.libelle=this.libelle
+    this.fiches.lieu=this.lieu
+    this.fiches.note=this.note
+    this.fiches.temps=this.temps
+    this.utilisateurService.getByUtilisateurId(this.id_utilisateur).subscribe(data=>{
+      this.fiches.utilisateur=data 
     })
+    this.tableauService.getByTableauId(this.id_tableau).subscribe(data=>{
+      this.fiches.tableau=data
+   })
+    this.ficheService.createFiche(this.fiches).subscribe(data=>{
+      this.fiches=data
+      this.toastr.success('fiche enregistré','message')
+      
+    })
+    console.log(this.fiches)
   }
   onSubmit(): void {
-       // this.saveFiche()
-       console.log(this.utilisateur)
+
+this.router.navigate(['/fiches']);
         
   }
 
