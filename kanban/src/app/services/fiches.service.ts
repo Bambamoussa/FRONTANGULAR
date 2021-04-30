@@ -27,4 +27,7 @@ export class FichesService {
   getByFicheId(id:any):Observable<Fiches>{
     return this.httpClient.get<Fiches>(`${this.urlFilePost}/${id}`)
  }
+ updateFiche(id:any,fiche:Fiches):Observable<object>{
+  return this.httpClient.post(`${this.urlFilePost}/${id}`,fiche)
+}
 }

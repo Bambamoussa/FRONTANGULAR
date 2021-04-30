@@ -32,8 +32,10 @@ export class UtilisateurService {
   getByUtilisateurId(id:any):Observable<Utilisateur>{
      return this.httpClient.get<Utilisateur>(`${this.urlUpdateUtilisateur}/${id}`)
   }
+
+  
   updateUtilisateur(id:any,utilisateur:Utilisateur):Observable<object>{
-    return this.httpClient.put(`${this.UpdateUtilisateur}/${id}`,utilisateur)
+    return this.httpClient.post(`${this.urlUpdateUtilisateur}/${id}`,utilisateur)
   }
    deleteUtilisateur(id:any):Observable<object>{
     return this.httpClient.delete(`${this.UrldeleteUtilisateur}/${id}`)

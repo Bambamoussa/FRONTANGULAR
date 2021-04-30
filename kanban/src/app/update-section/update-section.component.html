@@ -1,1 +1,14 @@
-<p>update-section works!</p>
+<div class="col-md-8 offset-md-3">
+    <h3> Update Section</h3>
+    <form (ngSubmit) = "updateSubmit()">
+    
+        <div class="form-group">
+            <label> libelle</label>
+            <input type="text" class ="form-control" id = "libelle_section"
+                [(ngModel)] = "section.libelle_section" name = "libelle_section">
+        </div>
+       
+        <button class = "btn btn-success" type ="submit">Submit</button>
+    
+
+    </form>

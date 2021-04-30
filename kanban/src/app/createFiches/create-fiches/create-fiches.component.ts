@@ -89,8 +89,8 @@ export class CreateFichesComponent implements OnInit {
     console.log(this.fiches)
   }
   onSubmit(): void {
-
-this.router.navigate(['/fiches']);
+   this.saveFiche()
+   this.router.navigate(['/fiches']);
         
   }
 

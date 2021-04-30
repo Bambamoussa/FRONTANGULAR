@@ -16,7 +16,7 @@
             <td> {{table.libelle_tableau}} </td>
              
               <td>
-                <button   class = "btn btn-info"> Update</button>
+                <button  (click)="updateTableau(table.id_Kanban)" class = "btn btn-info"> Update</button>
                 <button (click)="DeleteTableau(table.id_Kanban)"  class = "btn btn-danger" style="margin-left: 10px"> Delete</button>      
              </td>
         </tr>

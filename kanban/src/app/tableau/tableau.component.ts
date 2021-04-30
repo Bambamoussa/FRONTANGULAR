@@ -38,5 +38,8 @@ export class TableauComponent implements OnInit {
       this.toastr.success(' le tableau  a été supprimé','message')
     })
   }
+  updateTableau(id: any){
+    this.router.navigate(['update_tableau',id])
+  }
 
 }

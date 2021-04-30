@@ -38,5 +38,9 @@ export class SectionsComponent implements OnInit {
       this.toastr.success(' la section  a été supprimée','message')
     })
   }
+
+  updateSection(id: any){
+    this.router.navigate(['update_section',id])
+  }
    
 }

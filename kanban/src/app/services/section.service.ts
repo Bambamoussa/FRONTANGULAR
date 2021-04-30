@@ -25,4 +25,12 @@ export class SectionService {
   deleteSection(id:any):Observable<object>{
     return this.httpClient.delete(`${this.urlDeleteSection}/${id}`)
   }
+
+  updateSection(id:any,section:Section):Observable<object>{
+    return this.httpClient.post(`${this.urlCreateSection}/${id}`,section)
+  }
+
+  getBySectionId(id:any):Observable<Section>{
+    return this.httpClient.get<Section>(`${this.urlCreateSection}/${id}`)
+ }
 }

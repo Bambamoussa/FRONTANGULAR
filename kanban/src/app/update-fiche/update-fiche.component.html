@@ -1,1 +1,79 @@
-<p>update-fiche works!</p>
+<div class="col-md-8 offset-md-3">
+    <h3> Create Liste</h3>
+    <div>
+    
+        <div class="form-group">
+            <label> libelle</label>
+            <input type="text" class ="form-control" id = "lieu"
+              [(ngModel)]="fiche.libelle"   name = "libelle"/>
+        </div>
+    
+           <div class="form-group">
+            <label> lieu</label>
+            <input type="text" class ="form-control" id = "lieu"
+              [(ngModel)]="fiche.lieu"    name = "lieu"/>
+        </div>
+         
+    
+        <div class="form-group">
+            <label> date buttoir</label>
+            <input type="date" class ="form-control" id = "date_buttoir"
+              [(ngModel)]="fiche.date_buttoir"    name = "date_buttoir"/>
+        </div>
+
+        <div class="form-group">
+            <label> note</label>
+            <input type="text" class ="form-control" id = "note"
+                [(ngModel)]="fiche.note" name = "note"/>
+        </div>
+
+        <div class="form-group">
+            <label> URL</label>
+            <input type="text" class ="form-control" id = "url"
+               [(ngModel)]="fiche.url"   name = "url"/>
+        </div>
+
+        <div class="form-group">
+            <label> Temps</label>
+            <input type="number" class ="form-control" id = "temps"
+               [(ngModel)]="fiche.temps"   name = "temps"/>
+        </div>
+
+        <div class="form-group">
+            <label for="exampleFormControlSelect1">section</label>
+            
+                <select   class="form-control" 
+                [(ngModel)]="id_section"
+                id="exampleFormControlSelect1" >
+                <option >select</option>
+                     
+                    <option *ngFor = "let sect of section" [value]="sect.id_section">{{sect.libelle_section}}</option>
+        
+                </select>
+          
+        </div>
+        <div class="form-group">
+            <label for="exampleFormControlSelect1" >tableau </label>
+            <select    class="form-control" 
+             [(ngModel)]="id_tableau"
+            id="exampleFormControlSelect1">
+            <option >select</option>
+                <option *ngFor = "let table of tableau" [value]="table.id_Kanban"  >{{table.id_Kanban}}</option>
+    
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="exampleFormControlSelect1">Utilisateur</label>
+            <select class="form-control"
+            [(ngModel)]="id_utilisateur"
+            id="exampleFormControlSelect1">
+            <option >select</option>
+            <option *ngFor = "let user of utilisateur" [value]="user.id_utilisateur">{{user.nom}}</option>
+             
+            </select>
+        </div>
+    
+        <button class = "btn btn-success" (click)="updateSubmit()" type="submit">Submit</button>
+    
+    </div>

@@ -32,7 +32,7 @@
             
              
             <td>
-                <button   class = "btn btn-info"> Update</button>
+                <button (click)="updateFiche(fiche.id_fiche) " class = "btn btn-info"> Update</button>
                 <button (click)="DeleteFiche(fiche.id_fiche)"  class = "btn btn-danger" style="margin-left: 10px"> Delete</button>
                 <button (click)="detailsFiches(fiche.id_fiche)" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
                     view

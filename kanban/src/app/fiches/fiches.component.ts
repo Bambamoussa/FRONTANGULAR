@@ -45,4 +45,8 @@ export class FichesComponent implements OnInit {
        this.fichesById=data
     })
   }
+
+  updateFiche(id: any){
+    this.router.navigate(['update_fiche',id])
+  }
 }

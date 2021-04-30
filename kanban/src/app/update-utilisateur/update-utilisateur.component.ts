@@ -26,7 +26,7 @@ export class UpdateUtilisateurComponent implements OnInit {
     this.utilisateurService.updateUtilisateur(this.id,this.utilisateurs).subscribe(data=>{
          
       console.log(data)
-      this.toastr.success(' les données ont été modifiée','message')
+      this.toastr.success(' les données ont été modifiées','message')
     }, error=>console.log(error))
     this.router.navigate(['/utilisateurs'])
   }

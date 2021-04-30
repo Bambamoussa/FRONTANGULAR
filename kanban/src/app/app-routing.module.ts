@@ -7,6 +7,9 @@ import { CreateFichesComponent } from './createFiches/create-fiches/create-fiche
 import {FichesComponent} from './fiches/fiches.component';
 import { SectionsComponent } from './sections/sections.component';
 import { TableauComponent } from './tableau/tableau.component';
+import { UpdateFicheComponent } from './update-fiche/update-fiche.component';
+import { UpdateSectionComponent } from './update-section/update-section.component';
+import { UpdateTableauComponent } from './update-tableau/update-tableau.component';
 import { UpdateUtilisateurComponent } from './update-utilisateur/update-utilisateur.component';
 import { UtilisateursComponent } from './utilisateurs/utilisateurs.component';
 
@@ -21,6 +24,9 @@ const routes: Routes = [
   {path:'createsection', component:CreateSectionComponent},
   {path:'createTableau', component:CreateTableauComponent},
   {path:'update_utilisateur/:id', component:UpdateUtilisateurComponent},
+  {path:'update_tableau/:id', component:UpdateTableauComponent},
+  {path:'update_section/:id', component:UpdateSectionComponent},
+  {path:'update_fiche/:id', component:UpdateFicheComponent},
   //{path:'',redirectTo:'fiches',pathMatch:'full'},
   
 ];

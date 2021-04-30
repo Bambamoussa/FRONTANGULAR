@@ -3,8 +3,5 @@ export class Utilisateur {
     nom:string='';
     prenom:string='';
     fiches:any;
-    utilisateur:[]=[]
-    tableau:[]=[]
-    section:[]=[]
-
+   
 }

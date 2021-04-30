@@ -10,7 +10,7 @@ export class TableauService {
   private urlTableau="api/tableau/all";
   private urlCreateTableau="api/tableau";
   private UrldeleteTableau="api/tableau/delete"
-  private urlGetTableau="api//tableau"
+  private urlGetTableau="api/tableau"
    
   constructor(private httpClient :HttpClient) { }
 
@@ -28,5 +28,9 @@ export class TableauService {
 
   deleteTableau(id:any):Observable<object>{
     return this.httpClient.delete(`${this.UrldeleteTableau}/${id}`)
+  }
+
+  updateTableau(id:any,tableau:Tableau):Observable<object>{
+    return this.httpClient.post(`${this.urlGetTableau}/${id}`,tableau)
   }
 }
